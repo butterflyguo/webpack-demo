@@ -1,0 +1,14 @@
+{
+  "name": "webpack-demo",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "build": "webpack"
+  },
+  "author": "butterflyguo",
+  "devDependencies": {
+    "webpack": "^4.43.0",
+    "wepack-cli": "^0.0.1-security"
+  }
+}

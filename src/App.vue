@@ -1,18 +1,11 @@
 <template>
-<div>
-    <img :src="ava" alt="">
+<div id="app">
+    <p>  哈哈哈哈</p>
+    <a href="javascript:;">点点点</a>
+    
 </div>
 </template>
-<script>
-import ava from './assets/imgs/icon.jpg'
-export default {
-    data(){
-        return {
-            ava
-        }
-    }
-}
-</script>
-<style >
 
+<style>
+@import "./assets/css/common.css";
 </style>

@@ -20,13 +20,14 @@ module.exports = {
         {
             test: /\.(png|jpe?g|gif|svg)(\?.*)?$/i, //不需要加引号
             use: [{
-                    loader: 'file-loader', //将文件发送到输出文件夹并返回(相对)URL
+                    loader: 'url-loader', //将文件发送到输出文件夹并返回(相对)URL
                     options: {
+                        esModule: false,//es6规范 vue-loader在13.x以后通过require导入的包默认esModule是true；造成直接通过require方法引入的静态资源无法使用；需要手动添加default属性；
                         name: '[name]_[hash].[ext]', //使打包后的文件名为： 原本文件名_hash值.文件类型
                         outputpath: 'imgs/' ,
-                        // limit: 20480, //20kb 大于20kb的图片会像file-loader一样打包到dist/imgs下，如果小于20kb会将图片压缩成base64位,并添加到dist目录下输出js文件里
+                        limit: 20480, //20kb 大于20kb的图片会像file-loader一样打包到dist/imgs下，如果小于20kb会将图片压缩成base64位,并添加到dist目录下输出js文件里
                         // mimetype: 'image/png', //用来指定图片以base64格式打包进入js后的格式 默认是image/jpeg ,但是并不影响实际大小
-                        // fallback: 'responsive-loader'
+                        // fallback: 'vue-style-loader'
                     }
             }]
         },{
@@ -42,13 +43,14 @@ module.exports = {
     },
     plugins: [
         // new HtmlWebpackPlugin({template: './public/index.html'}),
-        new HtmlWebpackPlugin(),
+        new HtmlWebpackPlugin({template: './public/index.html'}),
         // 请确保引入这个插件！
         new VueLoaderPlugin() 
       ],
     output: { //出口
         filename: 'app.js', //文件名
-        path: path.resolve(__dirname,'dist') //出口文件路径 绝对地址
+        path: path.resolve(__dirname,'dist'), //出口文件路径 绝对地址
+        // publicPath:'./'
     }
     //注意： loader是从下到上，从右到左的顺序执行的！！！
 }

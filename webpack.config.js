@@ -37,8 +37,9 @@ module.exports = {
         },{
             test: /\.css$/, //不需要加引号
             use: ['vue-style-loader','css-loader','postcss-loader'], // 前后顺序不能写反。打包css文件并添加到html的header标签里面,'css-loader'识别.css文件直接的关系'style-loader'将css添加到html的header标签里面,
-                                                                     //'postcss-loader'增加厂商前缀，添加postcss.config.js --> 安装autoprefixer插件
-            
+        },{
+            test: /\.scss$/,
+            use: ['vue-style-loader','css-loader','sass-loader','postcss-loader']
         }]
     },
     plugins: [

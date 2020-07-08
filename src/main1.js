@@ -1,8 +1,6 @@
 import Vue from 'vue';
 import App from "./App.vue";
 
-require("@babel/polyfill"); //用来将es6转es5,
-
 // const imgurl =  require('./assets/imgs/icon.jpg');
 // import imgurl from './assets/imgs/icon.jpg'
 

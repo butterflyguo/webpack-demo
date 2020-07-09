@@ -10,6 +10,7 @@
   "author": "butterflyguo",
   "devDependencies": {
     "@babel/core": "^7.10.4",
+    "@babel/plugin-transform-runtime": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
     "autoprefixer": "^9.8.4",
     "babel-loader": "^8.1.0",
@@ -33,6 +34,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.10.4",
+    "@babel/runtime-corejs2": "^7.10.4",
     "vue-baidu-map": "^0.21.22"
   }
 }

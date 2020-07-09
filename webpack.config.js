@@ -5,6 +5,16 @@ const { CleanWebpackPlugin }  = require('clean-webpack-plugin'); //  在打包�
 const webpack =  require('webpack');
 
 
+// "presets": [["@babel/preset-env",{
+//     useBuiltIns: 'usage', //按需转换，有用到什么就引入什么
+//     targets: { //大于浏览器的这些版本就不做转换了
+//         edge: "17",
+//         firefox: "60",
+//         chrome: "67",
+//         safari: "11.1",
+//       },
+// }]],
+
 module.exports = {
     mode: "development", //模式 不写默认是production,   production:打包后会进行压缩，development不会进行压缩
     entry:  "./src/main.js", // 打包入口文件
@@ -72,13 +82,8 @@ module.exports = {
         },{ 
             test: /\.js$/, 
             exclude: /node_modules/, 
-            loader: "babel-loader", //用来将es6转es5
-            options: {
-                "presets": [["@babel/preset-env",{
-                    useBuiltIns: 'usage' //按需转换，有用到什么就引入什么
-                }]]
-            } }]
-    },
+            loader: "babel-loader" //用来将es6转es5
+        }],
     plugins: [
         // new HtmlWebpackPlugin({template: './public/index.html'}),
         new HtmlWebpackPlugin({template: './public/index.html'}),//会在打包结束之后，自动生成一个html文件，并把打包生成的js自动引入到这个html中

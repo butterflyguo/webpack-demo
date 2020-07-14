@@ -6,7 +6,7 @@ const webpack =  require('webpack');
 
 
 // "presets": [["@babel/preset-env",{
-//     useBuiltIns: 'usage', //按需转换，有用到什么就引入什么
+//     useBuiltIns: 'usage', //按需转换，有用到什么就引入什么，在webpack4中，如果使用了这个在main.js中不用引入'@babel/polyfill'也时可以的
 //     targets: { //大于浏览器的这些版本就不做转换了
 //         edge: "17",
 //         firefox: "60",
@@ -26,7 +26,7 @@ module.exports = {
     devServer:{ //文件修改完成无需每次npm run start,会自动帮我们完成这个动作
         contentBase: './dist', //设置服务器所在位置
         open: true, //自动帮我们打开浏览器
-        publicPath: './assets/',
+        publicPath: '/',
         hot: true, //使用模块热更新
         hotOnly: true, //html失效的时候不要刷新
         proxy:{
@@ -81,7 +81,7 @@ module.exports = {
             },'sass-loader','postcss-loader']
         },{ 
             test: /\.js$/, 
-            exclude: /node_modules/, 
+            exclude: /node_modules/, //除了mode_modules文件里的
             loader: "babel-loader" //用来将es6转es5
         }],
     plugins: [
@@ -100,4 +100,8 @@ module.exports = {
         // publicPath:'./'
     }
     //注意： loader是从下到上，从右到左的顺序执行的！！！
+},
+optimization: { //生成环境下注释
+    usedExports: true, //开启Tree Shaking, development下，生成环境下会自动开启
+  },
 }

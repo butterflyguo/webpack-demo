@@ -38,23 +38,11 @@ module.exports = {
             test: /\.vue$/,
             loader: 'vue-loader' //用来打包.vue文件模块
            
-        },{
-            test: /\.css$/, //不需要加引号
-            use: ['vue-style-loader','css-loader','postcss-loader'], // 前后顺序不能写反。打包css文件并添加到html的header标签里面,'css-loader'识别.css文件直接的关系'style-loader'将css添加到html的header标签里面,
-        },{
-            test: /\.scss$/,
-            use: ['vue-style-loader',{
-                loader:'css-loader',
-                options: {
-                    importLoaders: 2,
-                    // modules: true
-                }
-            },'sass-loader','postcss-loader']
         },{ 
             test: /\.js$/, 
             exclude: /node_modules/, //除了mode_modules文件里的
             loader: "babel-loader" //用来将es6转es5
-        }],
+        }]
     },
     plugins: [
         // new HtmlWebpackPlugin({template: './public/index.html'}),
@@ -80,13 +68,13 @@ module.exports = {
               vendors: { //属于node_modules里的文件
                 test: /[\\/]node_modules[\\/]/, 
                 priority: -10, //同时满足vendors和default时，值越大优先级越高
-                filename: 'vendors.js' //都统一打包到vendors.js文件里
+                // filename: 'vendors.js' //都统一打包到vendors.js文件里
               },
               default: { //不属于node_modules里的文件
                 // minChunks: 2,
                 priority: -20,
                 reuseExistingChunk: true, //如果一个模块被打包过了，再次打包的时候就忽略这个模块用之前使用过的模块
-                filename: 'common.js' //都统一打包到common.js文件里
+                // filename: 'common.js' //都统一打包到common.js文件里
               }
             }
           }

@@ -2,6 +2,7 @@ const webpack =  require('webpack');
 const  commonConfig = require('./webpack.common');
 const {merge} = require('webpack-merge');
 
+
 // "presets": [["@babel/preset-env",{
 //     useBuiltIns: 'usage', //按需转换，有用到什么就引入什么，在webpack4中，如果使用了这个在main.js中不用引入'@babel/polyfill'也时可以的
 //     targets: { //大于浏览器的这些版本就不做转换了
@@ -21,7 +22,6 @@ const devConfig=  {
         publicPath: '/',
         hot: true, //使用模块热更新
         hotOnly: true, //html失效的时候不要刷新
-        
         proxy:{
             "/api":{
                 target:'www.baidu.com', //代理服务器
@@ -31,8 +31,26 @@ const devConfig=  {
         }, //设置跨域
         // host: "0.0.0.0", //设置服务器外部能访问 webpack-dev-server --host 0.0.0.0
     },
+    module:{
+      rules: [
+        {
+          test: /\.css$/, //不需要加引号
+          use: ['vue-style-loader','css-loader','postcss-loader'], // 前后顺序不能写反。打包css文件并添加到html的header标签里面,'css-loader'识别.css文件直接的关系'style-loader'将css添加到html的header标签里面,
+      },{
+          test: /\.scss$/,
+          use: ['vue-style-loader',{
+              loader:'css-loader',
+              options: {
+                  importLoaders: 2,
+                  // modules: true
+              }
+          },'sass-loader','postcss-loader']
+      }
+      ]
+    },
     plugins: [
     new webpack.HotModuleReplacementPlugin()
+    
     
     
   ],

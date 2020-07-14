@@ -27,7 +27,9 @@ export default {
 </script>
 
 <style lang="scss">
+@import './assets/css/test.css';
 @import "./assets/css/common.scss";
+
 
 .my-map {
     width: 400px;

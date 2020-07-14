@@ -4,7 +4,9 @@
   "description": "",
   "private": true,
   "sideEffects": [
-    "*.css"
+    "*.css",
+    "*.scss",
+    "*.vue"
   ],
   "scripts": {
     "dev-build": "webpack --config build/webpack.dev.js",
@@ -23,6 +25,7 @@
     "css-loader": "^3.6.0",
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.3.0",
+    "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.14.1",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^9.0.0",

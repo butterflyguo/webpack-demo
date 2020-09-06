@@ -2,7 +2,7 @@
 <div id="app">
     <a href="javascript:;">点点点</a>
     <img src="./assets/imgs/icon.jpg">
-    <span>11111</span>
+    <span>哈哈哈哈</span>
 
 </div>
 </template>

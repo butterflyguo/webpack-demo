@@ -4,6 +4,7 @@
     <img src="./assets/imgs/icon.jpg">
     <span>哈哈哈哈</span>
     <span>test2</span>
+    <span>test22</span>
     
 </div>
 </template>

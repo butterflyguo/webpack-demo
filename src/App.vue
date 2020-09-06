@@ -3,7 +3,7 @@
     <a href="javascript:;">点点点</a>
     <img src="./assets/imgs/icon.jpg">
     <span>哈哈哈哈</span>
-
+    <span>test2</span>
 </div>
 </template>
 
